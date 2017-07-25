@@ -11,6 +11,11 @@
 	<artifactId>user-service</artifactId>
 	<name>user-service</name>
 	<url>http://maven.apache.org</url>
+	<packaging>jar</packaging>
+	<properties>
+		<!-- The main class to start by executing java -jar -->
+		<start-class>com.lak.poc.UserServiceApplication</start-class>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -26,5 +31,22 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
+	<build>
+		<finalName>user-service</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.lak.poc.UserServiceApplication</mainClass>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

@@ -28,7 +28,7 @@ public class ChargeController {
 
 		RestTemplate restTemplate = new RestTemplate();
 		HttpEntity<?> httpEntity = new HttpEntity<>(getDefaultHeaders());
-		ResponseEntity<String> response = restTemplate.exchange("http://localhost:8080" + "/service-instances/" + applicationName, HttpMethod.GET,
+		ResponseEntity<String> response = restTemplate.exchange("http://localhost:9090" + "/service-instances/" + applicationName, HttpMethod.GET,
 				httpEntity, String.class);
 	//	ServiceInstance instance = response.getBody();
 		return response.getBody();
@@ -47,7 +47,7 @@ public class ChargeController {
 		HttpEntity<?> httpEntity = new HttpEntity<>(getDefaultHeaders());
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<User> response = restTemplate.exchange(
-				getServiceInstance("USER-SERVICE") + "/user",
+				getServiceInstance("USER-SERVICE") + "/user-service/user",
 				HttpMethod.GET, httpEntity, User.class);
 		return response.getBody();
 	}

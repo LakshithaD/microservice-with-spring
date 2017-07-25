@@ -9,7 +9,12 @@
   </parent>
   <artifactId>eureka-server</artifactId>
   <name>eureka-server</name>
+  <packaging>jar</packaging>
   <url>http://maven.apache.org</url>
+  <properties>
+  	 <start-class>com.lak.poc.EurekaServer</start-class>
+  </properties>
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -25,7 +30,13 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka-server</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
+	
 
 	<!-- <dependencyManagement>
 		<dependencies>
@@ -38,4 +49,16 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement> -->
+	<build>
+	<finalName>eureka-server</finalName>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <mainClass>com.lak.poc.EurekaServer</mainClass>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 </project>

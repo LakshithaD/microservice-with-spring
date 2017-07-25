@@ -17,6 +17,7 @@ public class ServiceInstanceRestController {
     public String serviceInstancesByApplicationName(
             @PathVariable String applicationName) {
         
+    	discoveryClient.getServices().stream().forEach(a-> System.out.println(a));;
     	ServiceInstance instance = this.discoveryClient.getInstances(applicationName).get(0);
     	return "http://" + instance.getHost() + ":" + instance.getPort();
     }
